@@ -34,4 +34,4 @@ def sms_reply():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(threaded=True)
