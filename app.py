@@ -5,8 +5,18 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
-    return "Hello, World!"
+def help():
+    account_sid = 'AC195cf76c0d725909794c30f9b0c32961' 
+    auth_token = '70531f5d14ec79c14254cf7fdfb40bad' 
+    client = Client(account_sid, auth_token) 
+    
+    message = client.messages.create( 
+                                from_='whatsapp:+14155238886',  
+                                body="Salut Yvan, S'il te plait j'ai besoin de ton aide en urgence;",      
+                                to='whatsapp:+237696527034' 
+                            ) 
+    
+    print(message.sid)
 
 
 @app.route("/sms", methods=['POST'])
